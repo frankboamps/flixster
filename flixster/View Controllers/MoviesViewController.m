@@ -13,6 +13,7 @@
 
 
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *searchActivityIndicator;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
@@ -35,7 +36,8 @@
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
    
-   
+    [self.searchActivityIndicator startAnimating];
+    
     
 }
 - (void) fetchMovies {
@@ -58,7 +60,7 @@
                 NSLog(@"%@", movie[@"title"]);
             }
             
-            
+            [self.searchActivityIndicator stopAnimating];
             [self.tableView reloadData];
         }
         [self.refreshControl endRefreshing];
