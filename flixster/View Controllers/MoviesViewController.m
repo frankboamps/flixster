@@ -38,7 +38,6 @@
    
     [self.searchActivityIndicator startAnimating];
     
-    
 }
 - (void) fetchMovies {
     
@@ -48,6 +47,7 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
+            [self alerter];
         }
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -61,12 +61,44 @@
             }
             
             [self.searchActivityIndicator stopAnimating];
+            [self.refreshControl endRefreshing];
             [self.tableView reloadData];
         }
-        [self.refreshControl endRefreshing];
     }];
     [task resume];
 }
+
+-(void) alerter{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Get Movies"
+                                                                   message:@"The Internet connection appears to be offline "
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle cancel response here. Doing nothing will dismiss the view.
+                                                         }];
+    
+    [alert addAction:cancelAction];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try again"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         // handle response here.
+                                                     }];
+    
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
+    
+    
+  
+    [self.refreshControl endRefreshing];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.movies.count;
@@ -110,6 +142,7 @@
     NSLog(@"Tapping on a movie!");
     
 }
+
 
 
 @end
