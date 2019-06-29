@@ -1,8 +1,8 @@
 # Project 2 - *Flixster*
 
-**Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Flixster** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -18,16 +18,17 @@ The following **optional** features are implemented:
 - [x ] User sees an error message when there's a networking error.
 - [x] Movies are displayed using a CollectionView instead of a TableView.
 - [x] User can search for a movie.
-- [ ] All images fade in as they are loading.
-- [ ] User can view the large movie poster by tapping on a cell.
-- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+- [x] All images fade in as they are loading.
+- [x] User can view the large movie poster by tapping on a cell.
+- [x] Customize the UI.
+- [x] Customize the navigation bar.
 - [ ] Customize the selection effect of the cell.
-- [ ] Customize the navigation bar.
-- [ ] Customize the UI.
+- [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
+
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] Managed to get viewer to access movie trailers.
 - [x ]User sees a loading state while waiting for the movies to load.
 - [x] User can tap a poster in the collection view to see a detail screen of that movie.
 - [x ] User sees an error message when there's a networking error.
@@ -42,7 +43,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/LzRmJ3vP7G.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/QZx8XIy18C.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/mNxqWwZ0XA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Recordit](http://recordit.co/).
 

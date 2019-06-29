@@ -126,8 +126,28 @@
     NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
     
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:posterURL];
     cell.posterView.image = nil;
     [cell.posterView setImageWithURL:posterURL];
+
+    [cell.posterView setImageWithURLRequest:request placeholderImage:nil
+                                    success:^(NSURLRequest *imageRequest, NSHTTPURLResponse *imageResponse, UIImage *image) {
+                                        
+                                       
+
+                                            cell.posterView.alpha = 0.0;
+                                            cell.posterView.image = image;
+                                            
+                                            //Animate UIImageView back to alpha 1 over 0.3sec
+                                            [UIView animateWithDuration:0.5 animations:^{
+                                                cell.posterView.alpha = 1.0;
+                                            }];
+                                        }
+     
+     
+   failure:^(NSURLRequest *request, NSHTTPURLResponse * response, NSError *error) {
+                                        // do something for the failure condition
+                                    }];
     
     return cell;
 }
