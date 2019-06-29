@@ -8,10 +8,12 @@
 
 #import "TrailerViewController.h"
 #import  "UIImageView+AFNetworking.h"
+#import <WebKit/WebKit.h>
 
-@interface TrailerViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface TrailerViewController ()
+@property (weak, nonatomic) IBOutlet WKWebView *movieWebKitView;
+//@property (nonatomic, strong) NSString *trailers;
 
-@property (nonatomic, strong) NSArray *movies;
 
 @end
 
@@ -20,15 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self fetchTrailer];
 }
     
-    
-    
-    
-    
-    - (void) fetchMovies {
+
+- (void) fetchTrailer {
         
-        NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
+        NSString *baseURLString = @"https://api.themoviedb.org/3/movie/";
+        NSString *movieIdString = [self.movie[@"id"] stringValue];
+        NSString *movieURLString = [baseURLString stringByAppendingString:movieIdString];
+        NSString *videosurl = @"/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US";
+        NSString *fullmovieURLString = [movieURLString stringByAppendingString:videosurl];
+       // NSLog(@"movie %@", self.movie[@"id"]);
+    
+        NSURL *url = [NSURL URLWithString:fullmovieURLString];
         NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -37,16 +44,28 @@
             }
             else {
                 NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                NSString *trailers = dataDictionary [@"results"][0][@"key"];
                 
+                NSString *urlBaseString = @"https://www.youtube.com/watch?v=";
+             
+                NSString *urlString = [urlBaseString stringByAppendingString:trailers];
                 
+                NSURL *url = [NSURL URLWithString:urlString];
                 
-                self.movies = dataDictionary [@"results"];
-                // [self.collectionView reloadData];
-                
+                // Place the URL in a URL Request.
+                NSURLRequest *request = [NSURLRequest requestWithURL:url
+                                                         cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                     timeoutInterval:10.0];
+                // Load Request into WebView.
+                [self.movieWebKitView loadRequest:request];
+
             }
         }];
         [task resume];
     }
+- (IBAction)closeButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 /*

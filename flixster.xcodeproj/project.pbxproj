@@ -10,6 +10,7 @@
 		250FB19522C56FA2007D4411 /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FB19422C56FA2007D4411 /* MoviesGridViewController.m */; };
 		250FB19822C5742C007D4411 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FB19722C5742C007D4411 /* MovieCollectionCell.m */; };
 		250FB19B22C6A69E007D4411 /* TrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250FB19A22C6A69E007D4411 /* TrailerViewController.m */; };
+		2575162522C6DF5400DC9697 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2575162422C6DF5400DC9697 /* WebKit.framework */; };
 		25ECAFBB22C3EB1D006394B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ECAFBA22C3EB1D006394B9 /* AppDelegate.m */; };
 		25ECAFC122C3EB1D006394B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25ECAFBF22C3EB1D006394B9 /* Main.storyboard */; };
 		25ECAFC322C3EB1D006394B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25ECAFC222C3EB1D006394B9 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		250FB19722C5742C007D4411 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
 		250FB19922C6A69E007D4411 /* TrailerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailerViewController.h; sourceTree = "<group>"; };
 		250FB19A22C6A69E007D4411 /* TrailerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailerViewController.m; sourceTree = "<group>"; };
+		2575162422C6DF5400DC9697 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		25ECAFB622C3EB1D006394B9 /* flixster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flixster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25ECAFB922C3EB1D006394B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		25ECAFBA22C3EB1D006394B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2575162522C6DF5400DC9697 /* WebKit.framework in Frameworks */,
 				6BD5F434E0DDE5536B39F261 /* Pods_flixster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +217,7 @@
 		F99B0E5E3FA5C227FCBB6032 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2575162422C6DF5400DC9697 /* WebKit.framework */,
 				1CB39A09B3D8CF66ADEF6560 /* Pods_flixster.framework */,
 				C7F41AE84F982D9D9948D2D6 /* Pods_flixsterTests.framework */,
 				246110521284B3E8D5877CF2 /* Pods_flixsterUITests.framework */,

@@ -38,7 +38,7 @@
     self.movieSearchBar.delegate = self;
     
     [self fetchMovies];
-    
+    self.filteredMovies = self.movies;
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
     
     layout.minimumLineSpacing = 5;
@@ -89,7 +89,7 @@
         self.filteredMovies = self.movies;
     }
     
-   // [self.tableView reloadData];
+   [self.collectionView reloadData];
     
 }
 

@@ -1,4 +1,4 @@
-# Project 2 - *Name of App Here*
+# Project 2 - *Flixster*
 
 **Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
@@ -17,7 +17,7 @@ The following **optional** features are implemented:
 
 - [x ] User sees an error message when there's a networking error.
 - [x] Movies are displayed using a CollectionView instead of a TableView.
-- [ ] User can search for a movie.
+- [x] User can search for a movie.
 - [ ] All images fade in as they are loading.
 - [ ] User can view the large movie poster by tapping on a cell.
 - [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
@@ -28,11 +28,15 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [x ]User sees a loading state while waiting for the movies to load.
+- [x] User can tap a poster in the collection view to see a detail screen of that movie.
+- [x ] User sees an error message when there's a networking error.
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to integrate the search bar into one's code.
+2. How to add more animations into one's code.
 
 ## Video Walkthrough
 
@@ -40,11 +44,13 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIF created with [Recordit](http://recordit.co/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+- Interaction with API was new and different from what I had ever encountered.
+- Git pull and push using the terminal commands.
 
 ## Credits
 
