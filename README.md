@@ -29,7 +29,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [x] Managed to get viewer to access movie trailers.
-- [x]User sees a loading state while waiting for the movies to load.
+- [x] User sees a loading state while waiting for the movies to load.
 - [x] User can tap a poster in the collection view to see a detail screen of that movie.
 - [x] User sees an error message when there's a networking error.
 
